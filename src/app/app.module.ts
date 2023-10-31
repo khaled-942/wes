@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { MainConferenceTitleComponent } from './main-conference-title/main-conference-title.component';
 import { AboutComponent } from './about/about.component';
 import { ProgramComponent } from './program/program.component';
+import { SpeakersModule } from './speakers/speakers.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProgramComponent } from './program/program.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,
+    SpeakersModule
   ],
   providers: [],
   bootstrap: [AppComponent]

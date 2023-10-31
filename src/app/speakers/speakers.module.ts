@@ -16,6 +16,9 @@ import { SpeakerDetailComponent } from './speaker-detail/speaker-detail.componen
   imports: [
     CommonModule,
     SpeakersRoutingModule
+  ],
+  exports:[
+    SpeakersComponent
   ]
 })
 export class SpeakersModule { }
