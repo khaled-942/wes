@@ -1,0 +1,24 @@
+.footer {
+    position: relative;
+    background: #212121;
+    padding: 40px 0px 10px;
+
+    .innerFooter {
+        font-family: 'Droid Sans', sans-serif;
+        color: #292929;
+        max-width: 1200px;
+        line-height: 2em;
+        padding: 0px 0px 10px;
+        background: #161616;
+        margin: auto;
+
+        .text-link{
+            color: #7f7f7f;
+            transition-duration: 0.5s;
+            
+            &:hover{
+                color: #2e3192;
+            }
+        }
+    }
+}
