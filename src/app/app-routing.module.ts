@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'speakers', loadChildren: () => import('./speakers/speakers.module').then((m) => m.SpeakersModule)},
+  { path: 'archive', loadChildren: () => import('./archive/archive.module').then((m) => m.ArchiveModule)},
   { path: 'about', component: AboutComponent },
   { path: 'programme', component: ProgramComponent },
   { path: 'register', component: RegisterComponent },
