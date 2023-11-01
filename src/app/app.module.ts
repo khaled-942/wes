@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { RouterLink } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SpeakersModule } from './speakers/speakers.module';
+
 
 @NgModule({
   declarations: [
@@ -27,8 +29,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    SpeakersModule
     RouterLink,
     NgbModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

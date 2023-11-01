@@ -2,8 +2,10 @@
 .pointer{
     cursor: pointer;
 }
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Montserrat', sans-serif;
+}
 body{
     font-family: sans-serif;
 }
-/* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
