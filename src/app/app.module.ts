@@ -29,7 +29,7 @@ import { SpeakersModule } from './speakers/speakers.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    SpeakersModule
+    SpeakersModule,
     RouterLink,
     NgbModule
 
