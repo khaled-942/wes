@@ -2,3 +2,8 @@
 .pointer{
     cursor: pointer;
 }
+body{
+    font-family: sans-serif;
+}
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';
