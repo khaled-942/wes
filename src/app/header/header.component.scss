@@ -1,6 +1,9 @@
 .navbar {
     background-color: white !important;
-
+    position: fixed;
+    width: 100%;
+    z-index: 9999999;
+    top: 0;
 }
 
 .container-fluid {
@@ -17,12 +20,14 @@
 
 
 #navbarNav {
-    justify-content: center;
+    justify-content: end;
 }
 
 .dropdown-menu {
     background: #2e3192;
-
+    margin-top: -1px;
+    font-size: 12px;
+    border: 1px solid white ;
 }
 
 li:hover a.nav-link,
@@ -39,7 +44,7 @@ li.active a.nav-link,
     line-height: 40px;
     padding: 40px 25px;
     color: #a6a6a6;
-    margin-top: 25px;
+    margin-top: -4px;
     background: none;
     overflow: hidden;
     text-transform: uppercase;
@@ -88,8 +93,11 @@ li.active>a.nav-link:after,
     }
 
     .navbar-collapse a.nav-link {
-        padding: 20px 15px;
+        padding: 40px 15px;
+        font-size: 14px;
+        margin-top: 18px;
     }
+  
 }
 
 @media only screen and (max-width: 768px) {
@@ -98,7 +106,16 @@ li.active>a.nav-link:after,
     }
 
     .navbar-collapse a.nav-link {
-        padding: 10px 10px !important;
+        padding: 20px 10px !important;
 
     }
+
+}
+@media only screen and (max-width: 667px) and (min-width: 375px) {
+ 
+    .navbar-collapse a.nav-link {
+        font-size: 10px;
+
+    }
+
 }
