@@ -1,7 +1,7 @@
 .title{
 text-align: center;
 font-weight: 400;
-font-size: 32px;
+font-size: 40px;
 margin-bottom: 20px;
 }
 .about-container{
@@ -10,7 +10,7 @@ margin-bottom: 20px;
 }
 .about{
     text-align: left;
-    margin-right: 27.8rem;
+    margin: 0 22rem;
     visibility: visible;
     animation-duration: 1500ms;
     animation-delay: 200ms;
@@ -18,5 +18,22 @@ margin-bottom: 20px;
     color: #7f7f7f;
     line-height: 2em;
 }
+@media only screen and (max-width: 1024px) {
+    .title{
+        font-size: 32px;
+    }
+    .about{
+        margin: 0 3rem;
+    }
 
+}
 
+@media only screen and (max-width: 668px) {
+    .title{
+        font-size: 22px;
+    }
+    .about{
+        margin: 0 0rem;
+    }
+
+}
