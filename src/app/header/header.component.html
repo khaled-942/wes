@@ -13,11 +13,11 @@
           <li class="nav-item"  [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['home']">Home</a>
           </li>
-          <li class="nav-item dropdown" ngbDropdown>
-            <a class="nav-link dropdown-toggle pointer" id="wes1"  ngbDropdownToggle>
+          <li class="nav-item dropdown" (mouseover)='over(myDropDown)' (mouseout)='out(myDropDown)' ngbDropdown #myDropDown ="ngbDropdown">
+            <a class="nav-link dropdown-toggle pointer" id="wes1" ngbDropdownToggle>
               WES 23-SHARM EL SHEIKH
             </a>
-            <div class="dropdown-menu" aria-labelledby="wes1" ngbDropdownMenu>
+            <div class="dropdown-menu" (mouseover)='over(myDropDown)' (mouseout)='out(myDropDown)' aria-labelledby="wes1" ngbDropdownMenu>
               <a class="dropdown-item pointer" routerLink="/about" ngbDropdownItem>About</a>
               <a class="dropdown-item pointer" routerLink="/programme" ngbDropdownItem>Programme</a>
               <a class="dropdown-item pointer" routerLink="/speakers" ngbDropdownItem>Speakers</a>
