@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  APIURL:'http://localhost:4200'
+  APIURL:'https://wes-api.vercel.app/'
 };
 
 /*
