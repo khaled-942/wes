@@ -1,4 +1,4 @@
-export interface IProduct{
+export interface ProgrammeDetails{
     id: number;
     title: string;
     start: string;

@@ -1,6 +1,6 @@
 export interface Conference {
     id: number;
-    title:string; 
+    title: string; 
     title_abbrev: string;
     day_one_date: string;
     day_two_date: string;
