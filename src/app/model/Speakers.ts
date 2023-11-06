@@ -1,5 +1,5 @@
 export interface Speakers{
-    id: number;
+    _id: number;
     name: string;
     image: string;
     job: string;

@@ -25,10 +25,10 @@ export class ApiServiceService {
     return this.http.get<Conference[]>(`${environment.APIURL}conferences`);
   }
   getconferenceById(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}`);
+    return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22`);
   }
   getconferenceSpeakers(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/speakers`);
+    return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22/speakers`);
   }
   getconferenceProgrammes(confID: number): Observable<Conference> {
     return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/programmes`);
@@ -57,5 +57,8 @@ export class ApiServiceService {
   //speakers
   getspeakers (): Observable<Speakers> {
     return this.http.get<Speakers>(`${environment.APIURL}speakers`);
+  }
+  getspeakerById (id:string): Observable<Speakers> {
+    return this.http.get<Speakers>(`${environment.APIURL}speakers/${id}`);
   }
 }

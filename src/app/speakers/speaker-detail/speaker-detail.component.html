@@ -1,1 +1,23 @@
-<p>speaker-detail works!</p>
+<div class="speakerDetails">
+    <div class="title py-3">
+        <div class="auto-container mx-auto">
+            <h2 class="fs-1 lh-lg px-2">Meet Habib Sayegh</h2>
+        </div>
+    </div>
+
+    <div class="row speaker my-4 d-flex align-items-start auto-container mx-auto">
+        <div class="card h-100 border-0 col-lg-4 col-12">
+            <img [src]="speaker?.image" class="card-img-top" [alt]="speaker?.name">
+            <div class="card-body p-0 text-start d-flex flex-column justify-content-between">
+                <div class="description p-2 text-white">
+                    <h5>{{speaker?.name}}</h5>
+                    <small>{{speaker?.job}}</small>
+                </div>
+            </div>
+        </div>
+        <div class="bio col-lg-8 col-12">
+            <h3 class="fw-bold mt-3">Biography</h3>
+            <p class="lh-lg">{{speaker?.bio}}</p>
+        </div>
+    </div>
+</div>

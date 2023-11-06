@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { Speakers } from 'src/app/model/Speakers';
 
 @Component({
   selector: 'app-speaker',
@@ -7,9 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./speaker.component.scss'],
 })
 export class SpeakerComponent {
+  @Input() eachspeaker!: Speakers;
   constructor(private route: Router) {}
 
   navigateTo() {
-    this.route.navigate(['']);
+    this.route.navigate([`speakers/speaker/${this.eachspeaker._id}`]);
   }
 }
