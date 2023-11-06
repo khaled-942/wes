@@ -5,7 +5,6 @@ import { SpeakersRoutingModule } from './speakers-routing.module';
 import { SpeakersComponent } from './speakers/speakers.component';
 import { SpeakerComponent } from './speaker/speaker.component';
 import { SpeakerDetailComponent } from './speaker-detail/speaker-detail.component';
-import { DividerModule } from 'primeng/divider';
 
 @NgModule({
   declarations: [
@@ -15,8 +14,7 @@ import { DividerModule } from 'primeng/divider';
   ],
   imports: [
     CommonModule,
-    SpeakersRoutingModule,
-    DividerModule
+    SpeakersRoutingModule
   ],
   exports:[
     SpeakersComponent
