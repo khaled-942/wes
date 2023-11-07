@@ -10,11 +10,13 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { RouterLink } from '@angular/router';
 import { ContactComponent } from './contact/contact.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordionModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpeakersModule } from './speakers/speakers.module';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { AccordionComponent } from './accordion/accordion.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
+import { TimelineModule } from 'primeng/timeline';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     ContactComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AccordionComponent,
+    
 
   ],
   imports: [
@@ -35,7 +39,11 @@ import { FooterComponent } from './footer/footer.component';
     SpeakersModule,
     HttpClientModule,
     RouterLink,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    NgbAccordionModule,
+    TimelineModule
+    
 
   ],
   providers: [],
