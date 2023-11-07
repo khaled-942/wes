@@ -1,1 +1,12 @@
-<p>conference works!</p>
+<div class="archive">
+    <div class="card card-archive text-bg-dark position-relative overflow-hidden border-0">
+        <img [src]="eachConference.banner"
+            class="card-img pointer" alt="...">
+        <div
+            class="card-img-overlay-details d-flex align-items-center justify-content-evenly position-absolute h-100 w-100 custom-bg top-100">
+            <button class="btn text-white btn-edit border-1 btn-outline-light" (click)="navigateTo('about')">About</button>
+            <button class="btn text-white btn-edit border-1 btn-outline-light" (click)="navigateTo('programme')">Programme</button>
+            <button class="btn text-white btn-edit border-1 btn-outline-light" (click)="navigateTo('speakers')">Speakers</button>
+        </div>
+    </div>
+</div>
