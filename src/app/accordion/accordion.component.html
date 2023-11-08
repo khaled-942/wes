@@ -1,0 +1,25 @@
+
+
+
+    <div class="card">
+        <p-timeline [value]="events">
+            <ng-template pTemplate="content" let-event>
+                <small class="p-text-secondary">{{ event.date }}</small>
+            </ng-template>
+            <!-- <ng-template pTemplate="marker" let-event >
+                <div class="p-timeline-event-marker " [ngClass]="event?.status === 'Ordered'? 'highligh2' : '' "></div>
+                <div class="p-timeline-event-connector " [ngClass]="event?.status === 'Ordered'? 'highligh1' : '' "></div>
+            </ng-template> -->
+
+            <ng-template pTemplate="opposite" let-event >
+                <ngb-accordion #acc="ngbAccordion" >
+                    <ngb-panel class="collapse" id="toggle-1" [title]="event.status" >
+                        <ng-template ngbPanelContent>
+                           {{event.data}}
+                        </ng-template>
+                    </ngb-panel>
+                </ngb-accordion>
+
+            </ng-template>
+        </p-timeline>
+    </div>

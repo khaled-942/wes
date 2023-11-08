@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
-ApiServiceService;
+;
 @Component({
   selector: 'app-about',
   templateUrl: './about.component.html',
