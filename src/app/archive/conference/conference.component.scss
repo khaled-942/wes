@@ -1,0 +1,22 @@
+.archive {
+    .card-archive {
+
+        &:hover {
+            .custom-bg {
+                top: 0 !important;
+            }
+        }
+
+        .custom-bg {
+            transition-duration: 0.5s;
+            background: #2e3192;
+            opacity: 0.75;
+            .btn-edit{
+                &:hover{
+                    color: #2e3192 !important;
+                }
+            }
+        }
+
+    }
+}

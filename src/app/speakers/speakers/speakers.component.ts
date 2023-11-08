@@ -11,9 +11,10 @@ export class SpeakersComponent implements OnInit {
   speakers!: Speakers[];
   constructor(private api: ApiServiceService) {}
   ngOnInit(): void {
-    this.api.getconferenceSpeakers(1).subscribe((data:any)=>{
-      this.speakers = data.speakers
-      console.log(this.speakers)
+    this.api.confIdobs.subscribe((dataId)=>{
+      this.api.getconferenceSpeakers(dataId).subscribe((data:any)=>{
+        this.speakers = data.speakers
+      })
     })
   }
 }

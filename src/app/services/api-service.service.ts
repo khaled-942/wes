@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { catchError, Observable, retry, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
 import { Conference } from 'src/app/model/Conference';
 import { ProgrammeDetails } from 'src/app/model/ProgrammDetails';
 import { Programms } from 'src/app/model/Programms';
@@ -12,6 +12,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiServiceService {
   httpOption: any;
+  confId = new BehaviorSubject<any>('6542b68e478df56679e32f22');
+  confIdobs = this.confId.asObservable();
   constructor(private http: HttpClient) {
     this.httpOption = {
       headers: new HttpHeaders({
@@ -27,14 +29,14 @@ export class ApiServiceService {
   getconferenceById(confID: number): Observable<Conference> {
     return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22`);
   }
-  getconferenceSpeakers(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22/speakers`);
+  getconferenceSpeakers(confID: any): Observable<Conference> {
+    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/speakers`);
   }
   getconferenceProgrammes(confID: number): Observable<Conference> {
     return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/programmes`);
   }
-  getconferenceAbout(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22/about`);
+  getconferenceAbout(confID: any): Observable<Conference> {
+    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/about`);
   }
 
   //programme details

@@ -12,9 +12,11 @@ export class AboutComponent implements OnInit {
 
   constructor(private serv: ApiServiceService) {}
   ngOnInit() {
-    this.serv.getconferenceAbout(1).subscribe((a: any) => {
-      this.abouttitle = a.conference.title;
-      this.abouttext = a.conference.about;
-    });
+    this.serv.confIdobs.subscribe((dataId)=>{
+      this.serv.getconferenceAbout(dataId).subscribe((a: any) => {
+        this.abouttitle = a.conference.title;
+        this.abouttext = a.conference.about;
+      });
+    })
   }
 }
