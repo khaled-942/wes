@@ -11,4 +11,5 @@ export interface Conference {
     about:string;
     sprakers:[];
     programmes:[];
+    programme_pdf:string;
 }

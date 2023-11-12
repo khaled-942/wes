@@ -1,29 +1,43 @@
-import { AfterViewInit, Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, ViewChild,OnInit } from '@angular/core';
+import { ApiServiceService } from '../services/api-service.service';
+import {EventItem} from '../model/EventItem'
+import {Programms} from '../model/Programms'
 
-interface EventItem {
-  status?: string;
-  date?: string;
-  data?: string;
-}
 @Component({
   selector: 'app-accordion',
   templateUrl: './accordion.component.html',
   styleUrls: ['./accordion.component.scss']
 })
-export class AccordionComponent implements AfterViewInit {
+export class AccordionComponent implements OnInit {
   events: EventItem[];
-  @ViewChild ('ref') ref! :ElementRef
-  constructor() {
-    this.events = [
-        { status: 'Ordered', date: '15/10/2020 10:30', data:'gfgf' },
-        { status: 'Processing', date: '15/10/2020 14:00' },
-        { status: 'aaaaa', date: '15/10/2020 10:30'},
-
-    ];
+  programs:Programms[];
+  speakers: any;
+  id:any;
+  title:any; 
+  // @ViewChild ('acc') acc! :ElementRef
+  constructor(private serv: ApiServiceService) {
+    this.events = [];
+    this.speakers = [];
+    this.programs=[]
 }
- ngAfterViewInit(){
-   console.log(this.ref.nativeElement)
+ngOnInit(){
+  this.serv.progIdobs.subscribe((dataId)=>{
+    this.serv.getprogrammesDetails(dataId).subscribe((a: any) => {
+     this.events= a.details;
+     this.id=this.events.map(i=>i._id).shift();
+     
+
+    });
+  })
+this.serv.confId.subscribe((cid)=>{
+  this.serv.getconferenceProgrammes(cid).subscribe((c=>
+    {
+      this.programs=c.programmes;
+
+    }))
+})
  }
+
 }
 
 

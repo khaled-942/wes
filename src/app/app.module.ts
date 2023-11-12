@@ -17,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
 import { AccordionComponent } from './accordion/accordion.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { TimelineModule } from 'primeng/timeline';
+import { TabViewModule } from 'primeng/tabview'; 
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { TimelineModule } from 'primeng/timeline';
     NgbModule,
     BrowserAnimationsModule,
     NgbAccordionModule,
-    TimelineModule
+    TimelineModule,
+    TabViewModule
     
 
   ],

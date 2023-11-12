@@ -13,6 +13,9 @@ import { environment } from 'src/environments/environment';
 export class ApiServiceService {
   httpOption: any;
   confId = new BehaviorSubject<any>('6542b68e478df56679e32f22');
+  progId = new BehaviorSubject<any>('6548b56d62d67c3c18cecd75');
+
+  progIdobs = this.progId.asObservable();
   confIdobs = this.confId.asObservable();
   constructor(private http: HttpClient) {
     this.httpOption = {
@@ -27,7 +30,7 @@ export class ApiServiceService {
     return this.http.get<Conference[]>(`${environment.APIURL}conferences`);
   }
   getconferenceById(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/6542b68e478df56679e32f22`);
+    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}`);
   }
   getconferenceSpeakers(confID: any): Observable<Conference> {
     return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/speakers`);
@@ -41,8 +44,8 @@ export class ApiServiceService {
 
   //programme details
 
-  getprogrammedetails (progID: number): Observable<ProgrammeDetails> {
-    return this.http.get<ProgrammeDetails>(`${environment.APIURL}details/${progID}`);
+  getdetails (progID: number): Observable<ProgrammeDetails> {
+    return this.http.get<ProgrammeDetails>(`${environment.APIURL}details/6546ae12e497b06458057254`);
   }
 
   //programmes

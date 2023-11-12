@@ -5,5 +5,5 @@ export interface Speakers{
     job: string;
     title:string; 
     bio:string;
- 
+    occupation:string;
 }
