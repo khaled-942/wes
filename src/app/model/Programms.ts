@@ -1,6 +1,5 @@
 export interface Programms {
-    id:number;
+    _id:number;
     date:string;
-    pdf:string;
     details:[];
 }
