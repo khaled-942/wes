@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
 import { Conference } from 'src/app/model/Conference';
-import { ProgrammeDetails } from 'src/app/model/ProgrammDetails';
+import { Details } from 'src/app/model/Details';
 import { Programms } from 'src/app/model/Programms';
 import { Speakers } from 'src/app/model/Speakers';
 import { environment } from 'src/environments/environment';
@@ -44,8 +44,8 @@ export class ApiServiceService {
 
   //programme details
 
-  getdetails (progID: number): Observable<ProgrammeDetails> {
-    return this.http.get<ProgrammeDetails>(`${environment.APIURL}details/6546ae12e497b06458057254`);
+  getdetails (progID: number): Observable<Details> {
+    return this.http.get<Details>(`${environment.APIURL}details/6546ae12e497b06458057254`);
   }
 
   //programmes

@@ -1,6 +1,6 @@
 import { Component, ElementRef, Input, ViewChild,OnInit } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
-import {EventItem} from '../model/EventItem'
+import {Details} from '../model/Details'
 import {Programms} from '../model/Programms'
 
 @Component({
@@ -9,7 +9,7 @@ import {Programms} from '../model/Programms'
   styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-  events: EventItem[];
+  events: Details[];
   programs:Programms[];
   speakers: any;
   id:any;
