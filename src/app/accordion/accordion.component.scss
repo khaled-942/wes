@@ -67,7 +67,29 @@
         background-color: #ffffff;
         transform: scale(1.5);
     }
-
+  .p-tabview-nav-content  ul {
+        padding-left: 0; 
+        justify-content: center;
+    }
+    .p-tabview .p-tabview-nav {
+         border: none;
+    }
+    .p-tabview .p-tabview-nav li .p-tabview-nav-link {
+        background: white;
+        color: #2e3192 !important;
+        font-size: 25px;
+        padding: 40px 90px;
+    
+    }
+    .p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+        background: #2e3192;
+        border-color: #2e3192;
+        color: white !important;
+        font-size: 25px;
+        padding: 40px 90px;
+       
+        
+    }
    }
    .hvr-bounce-to-right {
     color: #fff;
