@@ -11,9 +11,11 @@ export class MainConferenceTitleComponent implements OnInit {
   date!: string;
   constructor(private api: ApiServiceService) {}
   ngOnInit(): void {
-    this.api.getconferenceById(1).subscribe((a:any) => {
+    this.api.confId.subscribe((cid)=>{
+    this.api.getconferenceById(cid).subscribe((a:any) => {
       this.title = a.conference.banner_title_one
       this.date = a.conference.day_two_date
     });
+  });
   }
 }
