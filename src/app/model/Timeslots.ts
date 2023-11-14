@@ -6,6 +6,6 @@ export interface Timeslots{
     video_url:string;
     start: string;
     end: string;
-    speakers?: Speakers[];
-
+    speakers: Speakers[];
+    _id:string;
 }
