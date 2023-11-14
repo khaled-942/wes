@@ -1,5 +1,9 @@
+import {Rooms} from './Rooms'
+
 export interface Programms {
     _id:number;
     date:string;
-    details:[];
+    type:string;
+    rooms_num:number;
+    rooms:Rooms[]
 }

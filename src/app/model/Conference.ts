@@ -1,15 +1,16 @@
+import {Speakers} from './Speakers'
+import {Programms} from './Programms'
+
 export interface Conference {
     _id: number;
     title: string; 
     title_abbrev: string;
-    day_one_date: string;
-    day_two_date: string;
-    banner_title_one:string;
-    banner_title_two:string;
+    date:string;
+    banner_title:string;
     location:string; 
     banner:string;
     about:string;
-    sprakers:[];
-    programmes:[];
     programme_pdf:string;
+    sprakers:Speakers[];
+    programmes:Programms[];
 }

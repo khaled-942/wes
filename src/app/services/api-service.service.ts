@@ -1,22 +1,32 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, catchError, Observable, retry, throwError } from 'rxjs';
+import {
+  HttpClient,
+  HttpHeaders
+} from '@angular/common/http';
+import {
+  BehaviorSubject,
+  Observable
+} from 'rxjs';
 import { Conference } from 'src/app/model/Conference';
-import { ProgrammeDetails } from 'src/app/model/ProgrammDetails';
+import { Details } from 'src/app/model/Details';
 import { Programms } from 'src/app/model/Programms';
 import { Speakers } from 'src/app/model/Speakers';
 import { environment } from 'src/environments/environment';
+import { Rooms } from '../model/Rooms';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiServiceService {
   httpOption: any;
   confId = new BehaviorSubject<any>('6542b68e478df56679e32f22');
-  progId = new BehaviorSubject<any>('6548b56d62d67c3c18cecd75');
+  progId = new BehaviorSubject<any>('65528be9cf3bf63984e0808c');
+  roomId = new BehaviorSubject<any>('65520a58d23e9f3efc1b2348');
 
   progIdobs = this.progId.asObservable();
   confIdobs = this.confId.asObservable();
+  roomIdobs = this.roomId.asObservable();
+
   constructor(private http: HttpClient) {
     this.httpOption = {
       headers: new HttpHeaders({
@@ -25,45 +35,74 @@ export class ApiServiceService {
       }),
     };
   }
- 
+
+  //conference
+
   getconference(): Observable<Conference[]> {
     return this.http.get<Conference[]>(`${environment.APIURL}conferences`);
   }
   getconferenceById(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}`);
+    return this.http.get<Conference>(
+      `${environment.APIURL}conferences/${confID}`
+    );
   }
   getconferenceSpeakers(confID: any): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/speakers`);
+    return this.http.get<Conference>(
+      `${environment.APIURL}conferences/${confID}/speakers`
+    );
   }
   getconferenceProgrammes(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/programmes`);
+    return this.http.get<Conference>(
+      `${environment.APIURL}conferences/${confID}/programmes`
+    );
   }
   getconferenceAbout(confID: any): Observable<Conference> {
-    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/about`);
+    return this.http.get<Conference>(
+      `${environment.APIURL}conferences/${confID}/about`
+    );
   }
 
   //programme details
 
-  getdetails (progID: number): Observable<ProgrammeDetails> {
-    return this.http.get<ProgrammeDetails>(`${environment.APIURL}details/6546ae12e497b06458057254`);
+  getdetails(detailsID: number): Observable<Details> {
+    return this.http.get<Details>(`${environment.APIURL}details/${detailsID}`);
   }
 
   //programmes
-  getprogrammes (): Observable<Programms> {
+
+  getprogrammes(): Observable<Programms> {
     return this.http.get<Programms>(`${environment.APIURL}programmes`);
   }
-  getprogrammesById (progID: number): Observable<Programms> {
-    return this.http.get<Programms>(`${environment.APIURL}programmes/${progID}`);
+  getprogrammesById(progID: number): Observable<Programms> {
+    return this.http.get<Programms>(
+      `${environment.APIURL}programmes/${progID}`
+    );
   }
-  getprogrammesDetails (progID: number): Observable<Programms> {
-    return this.http.get<Programms>(`${environment.APIURL}programmes/${progID}/details`);
+  getprogrammesRooms(progID: number): Observable<Programms> {
+    return this.http.get<Programms>(
+      `${environment.APIURL}programmes/${progID}/rooms`
+    );
+  }
+
+  //rooms
+
+  getroomsById(roomID: number): Observable<Rooms> {
+    return this.http.get<Rooms>(`${environment.APIURL}rooms/${roomID}`);
+  }
+  getroomsDetails(roomID: number): Observable<Conference> {
+    return this.http.get<Conference>(
+      `${environment.APIURL}rooms/${roomID}/details`
+    );
   }
 
   //speakers
-  getspeakers (): Observable<Speakers> {
+
+  getspeakers(): Observable<Speakers> {
     return this.http.get<Speakers>(`${environment.APIURL}speakers`);
   }
-  getspeakerById (id:string): Observable<Speakers> {
-    return this.http.get<Speakers>(`${environment.APIURL}speakers/${id}`);
+  getspeakerById(speakerid: string): Observable<Speakers> {
+    return this.http.get<Speakers>(
+      `${environment.APIURL}speakers/${speakerid}`
+    );
   }
 }

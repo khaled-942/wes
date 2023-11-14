@@ -1,7 +1,9 @@
 import { Component, ElementRef, Input, ViewChild,OnInit } from '@angular/core';
 import { ApiServiceService } from '../services/api-service.service';
-import {EventItem} from '../model/EventItem'
+import {Details} from '../model/Details'
 import {Programms} from '../model/Programms'
+import { Timeslots } from '../model/Timeslots';
+import { Rooms } from '../model/Rooms';
 
 @Component({
   selector: 'app-accordion',
@@ -9,30 +11,27 @@ import {Programms} from '../model/Programms'
   styleUrls: ['./accordion.component.scss']
 })
 export class AccordionComponent implements OnInit {
-  events: EventItem[];
+
   programs:Programms[];
+
+  rooms:Rooms[];
   speakers: any;
   id:any;
   title:any; 
   // @ViewChild ('acc') acc! :ElementRef
   constructor(private serv: ApiServiceService) {
-    this.events = [];
+ 
     this.speakers = [];
-    this.programs=[]
+     this.programs=[];
+    this.rooms=[];
 }
 ngOnInit(){
-  this.serv.progIdobs.subscribe((dataId)=>{
-    this.serv.getprogrammesDetails(dataId).subscribe((a: any) => {
-     this.events= a.details;
-     this.id=this.events.map(i=>i._id).shift();
-     
 
-    });
-  })
 this.serv.confId.subscribe((cid)=>{
   this.serv.getconferenceProgrammes(cid).subscribe((c=>
     {
       this.programs=c.programmes;
+    //  this.id=this.events.map(i=>i._id).shift();
 
     }))
 })

@@ -1,40 +1,84 @@
-<p-tabView > 
-  <p-tabPanel [header]="p.date.slice(0,11)"  *ngFor="let p of programs" > 
+<p-tabView>
+  <p-tabPanel [header]="p.date" *ngFor="let p of programs"> 
+<div *ngFor="let r of p.rooms">
+  <h1>{{ r.title }}</h1>
+  <br />
+  <div class="card">
+    <p-timeline [value]="r.details">
+      <ng-template pTemplate="content" let-d>
+        <small class="p-text-secondary"> {{ d.timeslots[0].start }}</small>
+      </ng-template>
 
-<div class="card">
-  <p-timeline [value]="events">
-    <ng-template pTemplate="content" let-event>
-      <small class="p-text-secondary">{{ event.start }}</small>
-    </ng-template>
+      <ng-template pTemplate="opposite" let-d>
+        <div *ngIf="d.type == 'timeslot'">
+          <ngb-accordion #acc="ngbAccordion">
+            <ngb-panel class="collapse" [title]="d.timeslot_title">
+              <ng-template ngbPanelContent>
+                <p-tabView>
+                  <p-tabPanel
+                    [header]="t.title"
+                    *ngFor="let t of d.timeslots"
+                    class="tab"
+                  >
+                    {{ t.description }}
+                    <br />
+                    <div class="col-12" style="text-align: right">
+                      <span class="hvr-bounce-to-right"
+                        >{{ t.start }}-{{ t.end }}</span
+                      >
+                    </div>
+                    <br />
+                    <div class="col-12">
+                      <div *ngFor="let speaker of t.speakers" class="d-flex">
+                        <div>
+                          <img class="img-circle" src="{{ speaker.image }}" />
+                        </div>
+                        <div class="p-2">
+                          <h5 class="prof-title">{{ speaker.name }}</h5>
+                          <h6 class="prof-occup">{{ speaker.title }}</h6>
+                        </div>
+                      </div>
+                    </div>
+                  </p-tabPanel>
+                </p-tabView>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
 
-    <ng-template pTemplate="opposite" let-event>
-      <ngb-accordion #acc="ngbAccordion" [activeIds]="id">
-        <ngb-panel  class="collapse " [id]="event._id" [title]="event.title">
-          <ng-template ngbPanelContent>
-            {{ event.description }}
-            <br>
-            <div class="col-12" style="text-align: right;">
-            <span class="hvr-bounce-to-right">{{ event.start }}-{{ event.end }}</span>
-          </div>
-          <br>
-          <div class="col-12 ">
-            
-            <div  *ngFor="let speaker of event.speakers" class="d-flex">
-              <div>
-              <img class="img-circle" src="{{ speaker.image }}" />
-            </div>
-              <div class="p-2">
-              <h5 class="prof-title">{{ speaker.name }}</h5>
-              <h6 class="prof-occup">{{ speaker.title }}</h6>
-            </div>
-       
-            </div>
-            </div>
-          </ng-template>
-        </ngb-panel>
-      </ngb-accordion>
-    </ng-template>
-  </p-timeline>
+        <div *ngIf="d.type == 'details'">
+          <ngb-accordion #acc="ngbAccordion"  *ngFor="let t of d.timeslots">
+            <ngb-panel class="collapse" [id]="t._id" [title]="t.title">
+              <ng-template ngbPanelContent>
+                {{ t.description }}
+                <br />
+                <div class="col-12" style="text-align: right">
+                  <span class="hvr-bounce-to-right"
+                    >{{ t.start }}-{{ t.end }}</span
+                  >
+                </div>
+                <br />
+                <div class="col-12">
+                  <div
+                    *ngFor="let speaker of t.speakers"
+                    class="d-flex"
+                  >
+                    <div>
+                      <img class="img-circle" src="{{ speaker.image }}" />
+                    </div>
+                    <div class="p-2">
+                      <h5 class="prof-title">{{ speaker.name }}</h5>
+                      <h6 class="prof-occup">{{ speaker.title }}</h6>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+      </ng-template>
+    </p-timeline>
+  </div>
 </div>
-</p-tabPanel> 
+</p-tabPanel>
 </p-tabView>
