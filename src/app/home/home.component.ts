@@ -10,6 +10,10 @@ export class HomeComponent implements OnInit {
   confDareArr: Array<any> = [];
   constructor(private api: ApiServiceService) {}
   ngOnInit(): void {
+    // this.api.getmainconference().subscribe(m=>{
+      
+    //   this.api.confId.next('6542b68e478df56679e32f22');
+    // });
       this.api.getconference().subscribe((conferences: any) => {
         conferences.conferences.map((conference: any) => {
           this.confDareArr.push(new Date(conference.day_one_date).getTime());

@@ -62,6 +62,11 @@ export class ApiServiceService {
     );
   }
 
+  getmainconference() {
+  
+    return this.http.get<Conference>(`${environment.APIURL}mainconferences`);
+  }
+
   //programme details
 
   getdetails(detailsID: number): Observable<Details> {
@@ -89,8 +94,8 @@ export class ApiServiceService {
   getroomsById(roomID: number): Observable<Rooms> {
     return this.http.get<Rooms>(`${environment.APIURL}rooms/${roomID}`);
   }
-  getroomsDetails(roomID: number): Observable<Conference> {
-    return this.http.get<Conference>(
+  getroomsDetails(roomID: number): Observable<Rooms> {
+    return this.http.get<Rooms>(
       `${environment.APIURL}rooms/${roomID}/details`
     );
   }
@@ -105,4 +110,7 @@ export class ApiServiceService {
       `${environment.APIURL}speakers/${speakerid}`
     );
   }
+
+
+  
 }
