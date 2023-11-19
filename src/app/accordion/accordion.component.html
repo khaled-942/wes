@@ -1,7 +1,8 @@
 <p-tabView>
   <p-tabPanel  *ngFor="let p of programs"> 
     <ng-template pTemplate="header">
-      <span [innerHTML]="p.date"></span>    
+      {{p.date| date : 'EEEE' }}<br>   
+      {{p.date| date : 'MMMM d, yyyy'}}   
   </ng-template>
 <div *ngFor="let r of p.rooms">
   <h1>{{ r.title }}</h1>

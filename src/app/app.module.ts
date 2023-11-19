@@ -18,6 +18,10 @@ import { AccordionComponent } from './accordion/accordion.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { TimelineModule } from 'primeng/timeline';
 import { TabViewModule } from 'primeng/tabview'; 
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AdminGuard } from './services/admin.guard.service';
+import { ApiServiceService } from './services/api-service.service';
 
 @NgModule({
   declarations: [
@@ -44,11 +48,13 @@ import { TabViewModule } from 'primeng/tabview';
     BrowserAnimationsModule,
     NgbAccordionModule,
     TimelineModule,
-    TabViewModule
+    TabViewModule,
+    FormsModule,
+    ReactiveFormsModule
     
 
   ],
-  providers: [],
+  providers: [AdminGuard,ApiServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

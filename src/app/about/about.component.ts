@@ -14,7 +14,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.serv.confIdobs.subscribe((dataId)=>{
       this.serv.getconferenceAbout(dataId).subscribe((a: any) => {
-        this.abouttitle = a.conference.title;
+        this.abouttitle = a.conference.title_abbrev;
         this.abouttext = a.conference.about;
       });
     })

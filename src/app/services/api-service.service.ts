@@ -34,6 +34,7 @@ export class ApiServiceService {
         // ,Authorization: 'my-auth-token'
       }),
     };
+
   }
 
   //conference
@@ -41,32 +42,27 @@ export class ApiServiceService {
   getconference(): Observable<Conference[]> {
     return this.http.get<Conference[]>(`${environment.APIURL}conferences`);
   }
-  getconferenceById(confID: number): Observable<Conference> {
-    return this.http.get<Conference>(
-      `${environment.APIURL}conferences/${confID}`
-    );
+  getconferenceById(confID: any): Observable<Conference> {
+    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}`);
   }
   getconferenceSpeakers(confID: any): Observable<Conference> {
     return this.http.get<Conference>(
       `${environment.APIURL}conferences/${confID}/speakers`
     );
   }
-  getconferenceProgrammes(confID: number): Observable<Conference> {
+  getconferenceProgrammes(confID: any): Observable<Conference> {
     return this.http.get<Conference>(
       `${environment.APIURL}conferences/${confID}/programmes`
     );
   }
   getconferenceAbout(confID: any): Observable<Conference> {
-    return this.http.get<Conference>(
-      `${environment.APIURL}conferences/${confID}/about`
-    );
+    return this.http.get<Conference>(`${environment.APIURL}conferences/${confID}/about`);
   }
 
-  getmainconference() {
-  
-    return this.http.get<Conference>(`${environment.APIURL}mainconferences`);
-  }
+  getmainconference(): Observable<Conference> {
 
+    return this.http.get<Conference>(`${environment.APIURL}mainconference`);
+  }
   //programme details
 
   getdetails(detailsID: number): Observable<Details> {
@@ -75,8 +71,8 @@ export class ApiServiceService {
 
   //programmes
 
-  getprogrammes(): Observable<Programms> {
-    return this.http.get<Programms>(`${environment.APIURL}programmes`);
+  getprogrammes(): Observable<Programms[]> {
+    return this.http.get<Programms[]>(`${environment.APIURL}programmes`);
   }
   getprogrammesById(progID: number): Observable<Programms> {
     return this.http.get<Programms>(
@@ -102,8 +98,8 @@ export class ApiServiceService {
 
   //speakers
 
-  getspeakers(): Observable<Speakers> {
-    return this.http.get<Speakers>(`${environment.APIURL}speakers`);
+  getspeakers(): Observable<Speakers[]> {
+    return this.http.get<Speakers[]>(`${environment.APIURL}speakers`);
   }
   getspeakerById(speakerid: string): Observable<Speakers> {
     return this.http.get<Speakers>(

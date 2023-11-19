@@ -8,13 +8,15 @@ import { ApiServiceService } from '../services/api-service.service';
 })
 export class MainConferenceTitleComponent implements OnInit {
   title!: string;
+  title_abbrev!:string;
   date!: string;
   constructor(private api: ApiServiceService) {}
   ngOnInit(): void {
     this.api.confId.subscribe((cid)=>{
     this.api.getconferenceById(cid).subscribe((a:any) => {
-      this.title = a.conference.banner_title_one
-      this.date = a.conference.day_two_date
+      this.title = a.conference.banner_title
+      this.title_abbrev = a.conference.title_abbrev
+      this.date = a.conference.date_text
     });
   });
   }
