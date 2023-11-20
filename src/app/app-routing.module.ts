@@ -5,7 +5,9 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { ProgramComponent } from './program/program.component';
 import { AboutComponent } from './about/about.component';
-
+import { LoginComponent } from './Admin-page/login/login.component';
+import { AdminHomeComponent } from './Admin-page/admin-home/admin-home.component';
+AdminHomeComponent
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -15,6 +17,9 @@ const routes: Routes = [
   { path: 'programme', component: ProgramComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'admin-login', component: LoginComponent },
+  { path: 'admin-home', component: AdminHomeComponent },
+
   { path: '**', redirectTo: '' },
 ];
 

@@ -22,6 +22,17 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AdminGuard } from './services/admin.guard.service';
 import { ApiServiceService } from './services/api-service.service';
+import { LoginComponent } from './Admin-page/login/login.component';
+import { ResetComponent } from './Admin-page/reset/reset.component';
+import { ViewConferencesComponent } from './Admin-page/conference/view-conferences/view-conferences.component';
+import { EditConferencesComponent } from './Admin-page/conference/edit-conferences/edit-conferences.component';
+import { CreateConferencesComponent } from './Admin-page/conference/create-conferences/create-conferences.component';
+import { CreateSpeakersComponent } from './Admin-page/speakers/create-speakers/create-speakers.component';
+import { EditSpeakersComponent } from './Admin-page/speakers/edit-speakers/edit-speakers.component';
+import { ViewSpeakersComponent } from './Admin-page/speakers/view-speakers/view-speakers.component';
+import { AdminHomeComponent } from './Admin-page/admin-home/admin-home.component';
+
+
 
 @NgModule({
   declarations: [
@@ -35,6 +46,15 @@ import { ApiServiceService } from './services/api-service.service';
     HeaderComponent,
     FooterComponent,
     AccordionComponent,
+    LoginComponent,
+    ResetComponent,
+    ViewConferencesComponent,
+    EditConferencesComponent,
+    CreateConferencesComponent,
+    CreateSpeakersComponent,
+    EditSpeakersComponent,
+    ViewSpeakersComponent,
+    AdminHomeComponent
     
 
   ],

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   HttpClient,
-  HttpHeaders
+  HttpHeaders,HttpErrorResponse
 } from '@angular/common/http';
 import {
   BehaviorSubject,
@@ -107,6 +107,26 @@ export class ApiServiceService {
     );
   }
 
+//token
 
-  
+// private handleError(error:HttpErrorResponse){
+//   if(error.status === 0){
+//     console.error('An error occured:',error.error);
+
+//   }else{
+//     console.error(
+//       `Backend and returned code ${error.status}, body was: `,error.error
+//     )
+//   }
+//   return throwError(
+//     ()=> new Error('eRROR OCCURED ; PLEASE TRY AGAIN')
+//     );
+// }
+
+login(adminInfo:any){
+  return this.http.post(`${environment.APIURL}users/login`,adminInfo,{
+    headers: this.httpOption.headers
+  })
+
+}
 }
