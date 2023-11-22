@@ -1,5 +1,9 @@
 <p-tabView>
-  <p-tabPanel [header]="p.date" *ngFor="let p of programs"> 
+  <p-tabPanel  *ngFor="let p of programs"> 
+    <ng-template pTemplate="header">
+      {{p.date| date : 'EEEE' }}<br>   
+      {{p.date| date : 'MMMM d, yyyy'}}   
+  </ng-template>
 <div *ngFor="let r of p.rooms">
   <h1>{{ r.title }}</h1>
   <br />
@@ -10,9 +14,12 @@
       </ng-template>
 
       <ng-template pTemplate="opposite" let-d>
-        <div *ngIf="d.type == 'timeslot'">
+        <div *ngIf="d.type == 'timeslot'" >
           <ngb-accordion #acc="ngbAccordion">
-            <ngb-panel class="collapse" [title]="d.timeslot_title">
+            <ngb-panel class="collapse"  >
+              <ng-template ngbPanelTitle>
+                <span [innerHTML]='d.timeslot_title'></span>
+              </ng-template> 
               <ng-template ngbPanelContent>
                 <p-tabView>
                   <p-tabPanel
@@ -47,8 +54,12 @@
         </div>
 
         <div *ngIf="d.type == 'details'">
-          <ngb-accordion #acc="ngbAccordion"  *ngFor="let t of d.timeslots">
-            <ngb-panel class="collapse" [id]="t._id" [title]="t.title">
+          <ngb-accordion #acc="ngbAccordion" [activeIds]="r.details[0].timeslots[0]._id"  *ngFor="let t of d.timeslots" >
+            
+            <ngb-panel class="collapse" [id]="t._id"  >
+              <ng-template ngbPanelTitle>
+                <span [innerHTML]='t.title'></span>
+              </ng-template> 
               <ng-template ngbPanelContent>
                 {{ t.description }}
                 <br />

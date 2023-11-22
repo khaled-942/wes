@@ -2,7 +2,7 @@ import {Speakers} from './Speakers'
 import {Programms} from './Programms'
 
 export interface Conference {
-    _id: number;
+    _id: string;
     title: string; 
     title_abbrev: string;
     date:string;

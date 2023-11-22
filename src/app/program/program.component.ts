@@ -7,16 +7,14 @@ import { ApiServiceService } from '../services/api-service.service';
   styleUrls: ['./program.component.scss']
 })
 export class ProgramComponent {
-  programmetitle: string = '';
-  pdf:string='';
+  programmetitle!: string ;
+  pdf!:string;
   constructor(private serv: ApiServiceService) {}
 
   ngOnInit() {
     this.serv.confIdobs.subscribe((dataId)=>{
-    this.serv.getconferenceAbout(dataId).subscribe((a: any) => {
-      this.programmetitle = a.conference.title;
-    });
     this.serv.getconferenceById(dataId).subscribe((a: any) => {
+      this.programmetitle = a.conference.title;
       this.pdf = a.conference.programme_pdf;
     });
   })

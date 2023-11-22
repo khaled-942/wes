@@ -28,12 +28,12 @@ export class AccordionComponent implements OnInit {
 ngOnInit(){
 
 this.serv.confId.subscribe((cid)=>{
-  this.serv.getconferenceProgrammes(cid).subscribe((c=>
+  this.serv.getconferenceProgrammes(cid).subscribe(c=>
     {
       this.programs=c.programmes;
-    //  this.id=this.events.map(i=>i._id).shift();
+     
+    })
 
-    }))
 })
  }
 
