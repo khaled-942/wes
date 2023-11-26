@@ -26,6 +26,7 @@ export class LoginComponent {
 this.api.login(this.loginForm.value).subscribe((i:any)=>
   {
     this.api.httpOption.Authorization=i.token
+    localStorage.setItem('token', i.token);
     if(i.token && i.user.role == "admin"){
       this.router.navigateByUrl('admin-home')
     }

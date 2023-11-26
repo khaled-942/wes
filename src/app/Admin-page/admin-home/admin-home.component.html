@@ -1,1 +1,40 @@
 <p>admin-home works!</p>
+<div class="card flex justify-content-center">
+    <p-sidebar [(visible)]="sidebarVisible">
+        <ng-template pTemplate="header">Dashboard</ng-template>
+        <ng-template pTemplate="content">
+                <ul class="navbar-nav">
+         
+                  <li class="nav-item dropdown"  ngbDropdown #myDropDown ="ngbDropdown">
+                    <a class="nav-link dropdown-toggle pointer" id="wes11" ngbDropdownToggle>
+                        Conference
+                    </a>
+                    <ul class="dropdown-menu"  aria-labelledby="wes11" ngbDropdownMenu>
+                     <li> <a class="dropdown-item pointer"  ngbDropdownItem>view All Conference</a></li>
+                      <a class="dropdown-item pointer" ngbDropdownItem>create Conference</a>
+                    </ul>
+                  </li>
+                  <li class="nav-item dropdown"  ngbDropdown #myDropDown ="ngbDropdown">
+                    <a class="nav-link dropdown-toggle pointer" id="wes12" ngbDropdownToggle>
+                        speakers                    </a>
+                    <div class="dropdown-menu"  aria-labelledby="wes12" ngbDropdownMenu>
+                      <a class="dropdown-item pointer"  ngbDropdownItem>view All speakers</a>
+                      <a class="dropdown-item pointer" ngbDropdownItem>create speakers</a>
+                    </div>
+                  </li>
+
+                    <li class="nav-item dropdown"  ngbDropdown #myDropDown ="ngbDropdown">
+                        <a class="nav-link dropdown-toggle pointer" id="wes13" ngbDropdownToggle>
+                            programmes                        </a>
+                        <div class="dropdown-menu"  aria-labelledby="wes13" ngbDropdownMenu>
+                          <a class="dropdown-item pointer"  ngbDropdownItem>view All programmes</a>
+                          <a class="dropdown-item pointer" ngbDropdownItem>create programmes</a>
+
+                        </div>
+                      </li>
+              
+                </ul>
+        </ng-template>
+    </p-sidebar>
+    <p-button (click)="sidebarVisible = true" icon="pi pi-th-large"></p-button>
+</div>

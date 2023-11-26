@@ -31,6 +31,9 @@ import { CreateSpeakersComponent } from './Admin-page/speakers/create-speakers/c
 import { EditSpeakersComponent } from './Admin-page/speakers/edit-speakers/edit-speakers.component';
 import { ViewSpeakersComponent } from './Admin-page/speakers/view-speakers/view-speakers.component';
 import { AdminHomeComponent } from './Admin-page/admin-home/admin-home.component';
+import { SidebarModule } from 'primeng/sidebar';
+import {ButtonModule} from 'primeng/button';
+
 
 
 
@@ -70,7 +73,9 @@ import { AdminHomeComponent } from './Admin-page/admin-home/admin-home.component
     TimelineModule,
     TabViewModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SidebarModule,
+    ButtonModule,
     
 
   ],

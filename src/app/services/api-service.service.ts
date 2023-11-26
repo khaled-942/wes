@@ -19,6 +19,9 @@ import { Rooms } from '../model/Rooms';
 })
 export class ApiServiceService {
   httpOption: any;
+  token:any;
+  auth=false;
+
   confId = new BehaviorSubject<any>('6542b68e478df56679e32f22');
   progId = new BehaviorSubject<any>('65528be9cf3bf63984e0808c');
   roomId = new BehaviorSubject<any>('65520a58d23e9f3efc1b2348');
@@ -28,6 +31,7 @@ export class ApiServiceService {
   roomIdobs = this.roomId.asObservable();
 
   constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token');
     this.httpOption = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -123,10 +127,18 @@ export class ApiServiceService {
 //     );
 // }
 
+
 login(adminInfo:any){
   return this.http.post(`${environment.APIURL}users/login`,adminInfo,{
     headers: this.httpOption.headers
   })
 
 }
+isAuth(){
+  if(this.token){
+    this.auth=true;
+  }
+  return this.auth
+}
+
 }

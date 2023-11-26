@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-home.component.scss']
 })
 export class AdminHomeComponent {
+  sidebarVisible: boolean = false;
 
 }

@@ -10,6 +10,9 @@
       
       <div class="collapse navbar-collapse" id="navbarNav" [ngbCollapse]="isCollapsed">
         <ul class="navbar-nav ml-auto" ngbNav #nav="ngbNav">
+          <li class="nav-item"  *ngIf="adminView()">
+            <a class="nav-link" [routerLink]="['admin-home']">DashBoard</a>
+          </li>
           <li class="nav-item"  [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['home']">Home</a>
           </li>
@@ -27,14 +30,16 @@
           <li class="nav-item" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['/archive']">WES ARCHIVE</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['active']">
+          <li class="nav-item" *ngIf="!adminView()" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['/register']">REGISTER</a>
           </li>
-          <li class="nav-item" [routerLinkActive]="['active']">
+          <li class="nav-item" *ngIf="!adminView()" [routerLinkActive]="['active']">
             <a class="nav-link" [routerLink]="['/contact']">CONTACT</a>
           </li>
+
         </ul>
       </div>
+      <button type="submit" class="btn " (click)='navigatetologout()' *ngIf="adminView()">Logout</button>
 
     </div>
 
